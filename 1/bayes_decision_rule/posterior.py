@@ -16,6 +16,8 @@ def posterior(x):
     #TODO
 
     # begin answer
+    p = l * (np.expand_dims(np.sum(x, axis=1), -1) / total)
+    p /= np.sum(p, axis=0)
     # end answer
     
     return p
