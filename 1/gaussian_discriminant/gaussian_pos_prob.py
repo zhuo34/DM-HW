@@ -1,4 +1,6 @@
 import numpy as np
+import scipy
+import scipy.stats
 
 def gaussian_pos_prob(X, Mu, Sigma, Phi):
     '''
@@ -22,7 +24,31 @@ def gaussian_pos_prob(X, Mu, Sigma, Phi):
     #Your code HERE
 
     # begin answer
+    def gaussian_pdf(X, Mu, Sigma):
+        Mu = np.expand_dims(Mu, -1)
+        t = X - Mu
+        Sigma_r = np.linalg.inv(Sigma)
+        p = t.T @ Sigma_r @ t
+        p = np.diag(p)
+        p = np.exp(-p * .5)
+        return p / (2 * np.pi * np.sqrt(np.linalg.det(Sigma)))
+    p = np.array([gaussian_pdf(X, Mu=Mu[:,i], Sigma=Sigma[:,:,i]) for i in range(K)]).T
+    p *= Phi
+    p /= np.expand_dims(np.sum(p, axis=1), -1)
     # end answer
     
     return p
-    
+
+if __name__ == "__main__":
+    M = 2
+    N = 100
+    K = 10
+    X = np.zeros((M, N))
+    Mu = np.zeros((M, K))
+    Sigma = np.zeros((M, M, K))
+    for i in range(K):
+        Sigma[:, :, i] = np.identity(M)
+    Phi = np.zeros((K))
+
+    p = gaussian_pos_prob(X, Mu, Sigma, Phi)
+    print(p.shape)

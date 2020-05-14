@@ -24,8 +24,7 @@ def plot_ex1(mu0, Sigma0, mu1, Sigma1, phi, fig_title, pos):
     xmax = max(np.max(x0), np.max(x1))
     ymin = min(np.min(y0), np.min(y1))
     ymax = max(np.max(y0), np.max(y1))
-
-    step = 0.01  # TODO
+    step = 0.1  # TODO
     xs, ys = np.meshgrid(np.arange(xmin, xmax + step, step), np.arange(ymin, ymax + step, step))
 
     xy = np.vstack((xs.flatten(), ys.flatten())).T
@@ -38,11 +37,10 @@ def plot_ex1(mu0, Sigma0, mu1, Sigma1, phi, fig_title, pos):
     decisionmap = ((np.array(pos_prob > 0.5, dtype=float) + 1) * 100).reshape(image_size)
     # class 1 = light red, 2 = light green, 3 = light blue
     cmap = matplotlib.colors.ListedColormap([(1, 0.8, 0.8), (0.95, 1, 0.95), (0.9, 0.9, 1)])
+
     if np.unique(decisionmap).shape == (1,): # GREEN HACK
         cmap = matplotlib.colors.ListedColormap([(0.95, 1, 0.95)])    
-    
     fig.pcolormesh(xs, ys, decisionmap, cmap=cmap, alpha=0.8)
-
     diff = abs(pos_prob - 0.5)
     diff_sorted = sorted(diff)
     threshold = diff_sorted[len(diff_sorted) // 500]

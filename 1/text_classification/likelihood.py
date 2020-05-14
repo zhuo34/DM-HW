@@ -14,6 +14,7 @@ def likelihood(x):
     #TODO
 
     # begin answer
+    l = x / np.sum(x, axis=1)[:, np.newaxis]
     # end answer
 
     return l
