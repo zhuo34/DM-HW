@@ -1,0 +1,290 @@
+%
+% Machine Learning Course Homework1
+% Only available in ZJU
+%
+\documentclass[12pt,twoside]{article}
+
+\input{macros}
+
+\usepackage{amsmath}
+\usepackage{url}
+\usepackage{mdwlist}
+\usepackage{graphicx}
+\usepackage{clrscode3e}
+\newcommand{\isnotequal}{\mathrel{\scalebox{0.8}[1]{!}\hspace*{1pt}\scalebox{0.8}[1]{=}}}
+\usepackage{listings}
+\usepackage{enumerate}
+\usepackage{tikz}
+\usepackage{bm}
+\usetikzlibrary{arrows}
+\usetikzlibrary{matrix}
+\usetikzlibrary{positioning}
+\usetikzlibrary{shapes.geometric}
+\usetikzlibrary{shapes.misc}
+\usetikzlibrary{trees}
+
+\newcommand{\answer}{
+ \par\medskip
+ \textbf{Answer:}
+}
+
+\newcommand{\collaborators}{ \textbf{Collaborators:}
+%%% COLLABORATORS START %%%
+
+\tabT Name: Zhuo Chen
+
+\tabT Student ID: 3170101214
+%%% COLLABORATORS END %%%
+}
+
+\newcommand{\answerIa}{ \answer
+%%% PROBLEM 1(a) ANSWER START %%%
+\begin{enumerate}
+	\item B) \textit{Unsupervised Learning} F) \textit{Clustering}
+	\item C) \textit{Not Learning}
+	\item A) \textit{Supervised Learning} D) \textit{Classification}
+	\item B) \textit{Unsupervised Learning} G) \textit{Dimensionality Reduction}
+	\item A) \textit{Supervised Learning} D) \textit{Regression}
+	\item A) \textit{Supervised Learning} D) \textit{Classification}
+	\item B) \textit{Unsupervised Learning} F) \textit{Clustering}
+	\item A) \textit{Supervised Learning} D) \textit{Regression}
+	\item B) \textit{Unsupervised Learning} G) \textit{Dimensionality Reduction}
+\end{enumerate}
+%%% PROBLEM 1(a) ANSWER END %%%
+}
+
+\newcommand{\answerIb}{ \answer
+%%% PROBLEM 1(b) ANSWER START %%%
+False. We also need a test dataset to evaluate generalization ability of our trained model.
+
+%%% PROBLEM 1(b) ANSWER END %%%
+}
+
+\newcommand{\answerIIa}{ \answer
+%%% PROBLEM 2(a) ANSWER START %%%
+\begin{enumerate}
+	\item $P(B_1) = \frac{1}{3}$
+	\item $P(B_2=0|B_1=1) = \frac{1}{2}$
+	\item
+	\begin{align*}
+		P(B_1=1|B_2=0)
+		&= \frac{P(B_2=0|B_1=1)P(B_1=1)}{P(B_2=0)} \\
+		&= \frac{P(B_2=0|B_1=1)P(B_1=1)}{\sum\limits_{i=1}^3 P(B_2=0|B_i=1)P(B_i=1)} \\
+		&= \frac{\frac{1}{2} \times \frac{1}{3}}{\frac{1}{2} \times \frac{1}{3}+0 \times \frac{1}{3}+1 \times \frac{1}{3}} \\
+		&= \frac{1}{3}
+	\end{align*}
+	\item Change.
+\end{enumerate}
+%%% PROBLEM 2(a) ANSWER END %%%
+}
+\newcommand{\answerIIb}{ \answer
+%%% PROBLEM 2(b) ANSWER START %%%
+\begin{enumerate}
+	\item test error: 3\%(3/100) for class 1, 30.5\%(61/200) for class 2, 21.3\%(64/300) for total.
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=.5\linewidth]{imgs/2b1}
+	\end{figure}
+	
+	\item test error: 15\%(15/100) for class 1, 16\%(32/200) for class 2, 15.7\%(47/300) for total.
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=.5\linewidth]{imgs/2b2}
+	\end{figure}
+	
+	\newpage
+	\item minimum risk: 70.9.
+\end{enumerate}
+%%% PROBLEM 2(b) ANSWER END %%%
+}
+
+
+
+\newcommand{\answerIIIa}{ \answer 
+%%% PROBLEM 3(a) ANSWER START %%%
+$x_1 + x_2 = 1$
+%%% PROBLEM 3(a) ANSWER END %%%
+
+}
+\newcommand{\answerIIIb}{ \answer
+	%%% PROBLEM 3(b) ANSWER START %%%
+	%%% PROBLEM 3(b) ANSWER END %%%
+}
+\newcommand{\answerIIIc}{ \answer
+%%% PROBLEM 3(c) ANSWER START %%%
+\begin{enumerate}
+	\item $\mu_0=(-3, -3)^T, \Sigma_0=\begin{pmatrix}1&0\\0&1\end{pmatrix}, \mu_1=(3, 3)^T, \Sigma_1=\begin{pmatrix}1&0\\0&1\end{pmatrix}, \phi=0.5$
+	\item $\mu_0=(0, 0)^T, \Sigma_0=\begin{pmatrix}5&0\\0&1\end{pmatrix}, \mu_1=(-2, 0)^T, \Sigma_1=\begin{pmatrix}3&0\\0&1\end{pmatrix}, \phi=0.3$
+	\item $\mu_0=(0, 0)^T, \Sigma_0=\begin{pmatrix}1&0\\0&1\end{pmatrix}, \mu_1=(-1, -1)^T, \Sigma_1=\begin{pmatrix}1&0.5\\0.5&1\end{pmatrix}, \phi=0.5$
+	\item $\mu_0=(0, 0)^T, \Sigma_0=\begin{pmatrix}1.5&0\\0&1.5\end{pmatrix}, \mu_1=(0, 0)^T, \Sigma_1=\begin{pmatrix}5&4\\4&5\end{pmatrix}, \phi=0.5$
+	\item $\mu_0=(0, 0)^T, \Sigma_0=\begin{pmatrix}1&0\\0&1\end{pmatrix}, \mu_1=(0, 0)^T, \Sigma_1=\begin{pmatrix}5&4\\4&5\end{pmatrix}, \phi=0.5$
+	\item $\mu_0=(0, 0)^T, \Sigma_0=\begin{pmatrix}1&0\\0&1\end{pmatrix}, \mu_1=(0, 0)^T, \Sigma_1=\begin{pmatrix}5&0\\0&5\end{pmatrix}, \phi=0.5$
+	\item $\mu_0=(0, 0)^T, \Sigma_0=\begin{pmatrix}0.9&0\\0&0.9\end{pmatrix}, \mu_1=(0, 0)^T, \Sigma_1=\begin{pmatrix}5&4\\4&5\end{pmatrix}, \phi=0.5$
+	\item $\mu_0=(0, 0)^T, \Sigma_0=\begin{pmatrix}1&0\\0&1\end{pmatrix}, \mu_1=(0, 0)^T, \Sigma_1=\begin{pmatrix}1&0\\0&1\end{pmatrix}, \phi=0.5$
+\end{enumerate}
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=\linewidth]{imgs/3c}
+	\caption{3(c)}
+\end{figure}
+%%% PROBLEM 3(c) ANSWER END %%%
+}
+
+\newcommand{\answerIIId}{ \answer
+%%% PROBLEM 3(d) ANSWER START %%%
+Assume $\theta=(\phi, \mu_0, \mu_1, \Sigma_0, \Sigma_1)$, then
+$$
+\begin{aligned}
+	L(\theta)
+	&= \sum\limits_{i=1}^m logP(\bm{x}^{(i)}|\theta) \\
+	&= \sum\limits_{i=1}^m log \sum\limits_{j=0}^1 P(y=j)P(\bm{x}^{(i)}|\mu_j,\Sigma_j)
+\end{aligned}
+$$
+Then $\theta^*=\nabla_\theta L = (\dfrac{\partial L}{\partial\phi}, \dfrac{\partial L}{\partial\mu_0}, \dfrac{\partial L}{\partial\mu_1}, \dfrac{\partial L}{\partial\Sigma_0}, \dfrac{\partial L}{\partial\Sigma_1})$, which is difficult to obtain a closed-form solution, but easier to get an iterative solution by Expectation-Maximization	(EM)	algorithm.
+
+%%% PROBLEM 3(d) ANSWER END %%%
+}
+\newcommand{\answerIIIIa}{ \answer
+%%% PROBLEM 4(a) ANSWER START %%%
+nbsp, viagra, pills, cialis, voip, php, meds, computron, sex, ooking
+%%% PROBLEM 4(a) ANSWER END %%%
+}
+\newcommand{\answerIIIIb}{ \answer
+%%% PROBLEM 4(b) ANSWER START %%%
+99.1\% for ham emails, 97.2\% for spam, 98.6\% for total.
+%%% PROBLEM 4(b) ANSWER END %%%
+}
+\newcommand{\answerIIIIc}{ \answer
+%%% PROBLEM 4(c) ANSWER START %%%
+False. For example, when there are only 100 emails (99 hams and 1 spam), the model which always gives positive prediction can achieve a 99\% accuracy.
+%%% PROBLEM 4(c) ANSWER END %%%
+}
+\newcommand{\answerIIIId}{ \answer
+%%% PROBLEM 4(d) ANSWER START %%%
+We can get the following confusion matrix:
+\begin{table}[h]
+\centering
+\begin{tabular}{|c|c|c|}
+	\hline
+	& Spam (label) & Ham (label) \\
+	\hline
+	Spam (predict) & 1093 & 29 \\
+	\hline
+	Ham (predict) & 31 & 2983 \\
+	\hline
+\end{tabular}
+\end{table}
+
+So, $precision=97.4\%$, $recall = 97.2\%$.
+%%% PROBLEM 4(d) ANSWER END %%%
+}
+\newcommand{\answerIIIIe}{ \answer
+%%% PROBLEM 4(e) ANSWER START %%%
+Precision is more important in a spam filter, because it can be endured if a few spams are not detected. However, recall is dominant in airports security, because the danger resulting from not identifying drugs and bombs is more than the bother brought to passengers.
+%% PROBLEM 4(e) ANSWER END %%%
+}
+
+\setlength{\oddsidemargin}{0pt}
+\setlength{\evensidemargin}{0pt}
+\setlength{\textwidth}{6.5in}
+\setlength{\topmargin}{0in}
+\setlength{\textheight}{8.5in}
+
+% Fill these in!
+\newcommand{\theproblemsetnum}{1}
+\newcommand{\releasedate}{May 3, 2020}
+\newcommand{\partaduedate}{May 14, 2019}
+\newcommand{\tabUnit}{3ex}
+\newcommand{\tabT}{\hspace*{\tabUnit}}
+
+\begin{document}
+
+\handout{Homework \theproblemsetnum}{\releasedate}
+
+
+
+\collaborators
+% Please download the .zip archive for this problem set, and refer to the
+% hw1.pdf file for instructions on preparing your solutions.
+%
+
+
+\medskip
+
+\hrulefill
+
+\begin{problems}
+
+\problem \textbf{Machine Learning Problems}
+\begin{problemparts}
+\problempart Choose proper word(s) from
+\answerIa
+
+
+\problempart True or False: “To fully utilizing available data resource, we should use all the data we
+have to train our learning model and choose the parameters that maximize performance
+on the whole dataset.” Justify your answer.
+\answerIb
+
+\end{problemparts}
+\newpage
+
+\problem \textbf{Bayes Decision Rule}
+\begin{problemparts}
+\problempart
+Suppose you are given a chance to win bonus grade points:
+
+
+\answerIIa
+
+\problempart Now let us use bayes decision theorem to make a two-class classifier $\cdots$.
+
+\answerIIb
+
+
+\end{problemparts}
+\newpage
+\problem \textbf{Gaussian Discriminant Analysis and MLE}
+
+Given a dataset consisting of m samples. We assume these samples are independently generated by one of two Gaussian distributions$\cdots$
+\begin {problemparts}
+\problempart What is the decision boundary?
+
+\answerIIIa
+
+\problempart An extension of the above model is to classify K classes by fitting a Gaussian distribution for each class$\cdots$
+\answerIIIb
+
+\problempart  Now let us do some field work – playing with the above 2-class Gaussian discriminant model.
+\answerIIIc
+
+\problempart What is the maximum likelihood estimation of $\phi, \mu_0$ and $\mu_1$?
+\answerIIId 
+
+\end{problemparts}
+
+\newpage
+
+\problem  \textbf{Text Classification with Naive Bayes}
+
+\begin{problemparts}
+\problempart  List the top 10 words.
+
+\answerIIIIa
+
+\problempart What is the accuracy of your spam filter on the testing set?
+\answerIIIIb
+
+\problempart True or False: a model with 99\% accuracy is always a good model. Why?
+\answerIIIIc
+
+\problempart Compute the precision and recall of your learnt model.
+\answerIIIId 
+
+\problempart For a spam filter, which one do you think is more important, precision or recall? What about a classifier to identify drugs and bombs at airport? Justify your answer.
+\answerIIIIe 
+
+\end{problemparts}
+
+\end{problems}
+\end{document}
