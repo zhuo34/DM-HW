@@ -1,0 +1,43 @@
+\documentclass{article}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{bm}
+\usepackage{amssymb}
+
+\begin{document}
+
+Show that $E(\bm{a}) = \sum\limits_{i \in I} log(1+e^{-y_i\bm{a}^T\bm{x}_i})$ is a convex function of $\bm{a}$.
+
+\begin{proof}
+
+\begin{align*}
+	\frac{\partial E}{\partial \bm{a}} &= \sum\limits_{i \in I} \frac{\partial log(1+e^{-y_i\bm{a}^T\bm{x}_i})}{\partial \bm{a}} \\
+	&= \sum\limits_{i \in I} \frac{e^{-y_i\bm{a}^T\bm{x}_i}}{1+e^{-y_i\bm{a}^T\bm{x}_i}}\cdot(-y_i)\cdot\bm{x}_i^T \\
+	&\triangleq -\sum\limits_{i \in I} y_i\sigma(-y_i\bm{a}^T\bm{x}_i)\bm{x}_i^T
+\end{align*}
+
+Here the function $\sigma(\cdot)$ is sigmoid function, and $\frac{d\sigma(x)}{dx}=\sigma(x)(1-\sigma(x))$. Then we have
+
+\begin{align*}
+	\frac{\partial^2 E}{\partial a_p a_q}
+	&= \sum\limits_{i \in I} y_i^2x_{ip}x_{iq}\sigma(-y_i\bm{a}^T\bm{x}_i)(1-\sigma(-y_i\bm{a}^T\bm{x}_i)) \\
+	&= \sum\limits_{i \in I} x_{ip}x_{iq}\sigma(-y_i\bm{a}^T\bm{x}_i)(1-\sigma(-y_i\bm{a}^T\bm{x}_i)) \\
+	&\triangleq \sum\limits_{i \in I} x_{ip}x_{iq}\rho_i
+\end{align*}
+
+Then we need proof that the Hessian matrix $\nabla_{\bm{a}}^2E$ is semidefinite, which equals $\forall \bm{v}, \bm{v}^T(\nabla_{\bm{a}}^2E)\bm{v} \geq 0$.
+
+\begin{align*}
+	\bm{v}^T(\nabla_{\bm{a}}^2E)\bm{v}
+	&= \sum\limits_p\sum\limits_q\sum\limits_i v_pv_qx_{ip}x_{iq}\rho_i \\
+	&= \sum\limits_i\sum\limits_p\sum\limits_q v_pv_qx_{ip}x_{iq}\rho_i \\
+	&= \sum\limits_i \rho_i \sum\limits_p v_px_{ip} \sum\limits_q v_qx_{iq} \\
+	&= \sum\limits_i \rho_i \sum\limits_p v_px_{ip} \bm{x}_i^T\bm{v} \\
+	&= \sum\limits_i \rho_i (\bm{x}_i^T\bm{v})^2 \geq 0 \\
+\end{align*}
+
+Therefore, Hessian matrix $\nabla_{\bm{a}}^2E$ is semidefinite, which indicates $E(\bm{a})$ is a convex function of $\bm{a}$.
+
+\end{proof}
+
+\end{document}
