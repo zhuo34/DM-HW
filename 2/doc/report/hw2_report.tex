@@ -20,6 +20,7 @@
 \usetikzlibrary{shapes.geometric}
 \usetikzlibrary{shapes.misc}
 \usetikzlibrary{trees}
+\usepackage{subfigure}
 
 \usepackage{hyperref}
 \usepackage[all]{hypcap}
@@ -43,18 +44,18 @@
 \newcommand{\answerIa}{ \answer
 %%% PROBLEM 1(a) ANSWER START %%%
 \begin{enumerate}
-	\item 
-	\item 
-	\item
+	\item 10: 0\%, 10.98\%; 100: 0\%, 1.34\%.
+	\item 10: 13; 100: 214.
+	\item The program will not stop because the algorithm cannot converge.
 
 \end{enumerate}
 
-%\begin{figure}[H]
-%	\centering
-%	\includegraphics[scale=0.7]{figure2}
-%	\caption{The plotting result for perceptron when nTrain = 100.}
-%	\label{figure2}
-%\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{imgs/figure2}
+	\caption{The plotting result for perceptron when nTrain = 100.}
+	\label{figure2}
+\end{figure}
 %\begin{figure}[H]
 %	\centering
 %	\includegraphics[scale=0.7]{figure3}
@@ -67,62 +68,73 @@
 \newcommand{\answerIb}{ \answer
 %%% PROBLEM 1(b) ANSWER START %%%
 \begin{enumerate}
-	\item
-	\item 
-	\item 
-	\item 
+	\item The training error rate is 3.30\%, and test error rate is 3.96\%.
+	\item 13.1\% for training set, 5.58\% for test set.
+	\item 49\% for training set, 54.79\% for test set.
+	\item 5\% for training set, 5.29\% for test set.
 	
 \end{enumerate}
-%\begin{figure}[H]
-%	\centering
-%	\includegraphics[scale=0.7]{figure4}
-%	\caption{The plotting result for linear regression.}
-%	\label{figure4}
-%\end{figure}
-%\begin{figure}[H]
-%	\centering
-%	\includegraphics[scale=0.7]{figure5}
-%	\caption{The plotting result for linear regression when training data is not linearly seperable.}
-%	\label{figure5}
-%\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{imgs/figure4}
+	\caption{The plotting result for linear regression.}
+	\label{figure4}
+\end{figure}
+\begin{figure}[H]
+	\centering
+	\includegraphics[scale=0.5]{imgs/figure5}
+	\caption{The plotting result for linear regression when training data is not linearly seperable.}
+	\label{figure5}
+\end{figure}
 %%% PROBLEM 1(b) ANSWER END %%%
 }
 
 \newcommand{\answerIc}{ \answer
 	%%% PROBLEM 1(c) ANSWER START %%%
 	\begin{enumerate}
-		\item 
-		\item	
+		\item 7.52\% for training set, 8.55\% for test set.
+		\item 17.1\% for training set, 10.8\% for test set.
 	\end{enumerate}
-%	\begin{figure}[H]
-%		\centering
-%		\includegraphics[scale=0.7]{figure6}
-%		\caption{The plotting result for logistic regression.}
-%		\label{figure6}
-%	\end{figure}
-%	\begin{figure}[H]
-%		\centering
-%		\includegraphics[scale=0.7]{figure7}
-%		\caption{The plotting result for logistic regression when training data is not linearly seperable.}
-%		\label{figure7}
-%	\end{figure}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.5]{imgs/figure6}
+		\caption{The plotting result for logistic regression.}
+		\label{figure6}
+	\end{figure}
+	\begin{figure}[H]
+		\centering
+		\includegraphics[scale=0.5]{imgs/figure7}
+		\caption{The plotting result for logistic regression when training data is not linearly seperable.}
+		\label{figure7}
+	\end{figure}
 	%%% PROBLEM 1(c) ANSWER END %%%
 }
 
 \newcommand{\answerId}{ \answer
 	%%% PROBLEM 1(d) ANSWER START %%%
 	\begin{enumerate}
-		\item
-		\item 
-		\item
+		\item 0\% for training set, 3.22\% for test set.
+		\item 0\% for training set, 1.01\% for test set.
+		\item 2.989.
+		\item (bonus) When the training data is noisy and not linearly separable (nTrain = 100), SVM without slack variables has an avarage error rate of 47.5\% for training set and 47.6\% for test set, meanwhile SVM with slack variables (C = 4) has an avarage error rate of 13.1\% for training set and 5.48\% for test set.
 	\end{enumerate}
 
-%	\begin{figure}
-%		\centering
-%		\includegraphics[scale=0.7]{figure9}
-%		\caption{The plotting result for SVM when nTrain is 100.}
-%		\label{figure9}
-%	\end{figure}
+	\begin{figure}
+		\centering
+		\includegraphics[scale=0.5]{imgs/figure9}
+		\caption{The plotting result for SVM when nTrain is 100.}
+		\label{figure9}
+	\end{figure}
+	\begin{figure}
+		\centering
+		\subfigure[without slack variables]{
+			\includegraphics[scale=0.5]{imgs/figure10}
+		}\subfigure[with slack variables, C = 1]{
+			\includegraphics[scale=0.5]{imgs/figure11}
+		}
+		\caption{The plotting result for SVM when training data is not linearly seperable.}
+		\label{figure10}
+	\end{figure}
 	%%% PROBLEM 1(d) ANSWER END %%%
 }
 
@@ -130,9 +142,9 @@
 %%% PROBLEM 2(a) ANSWER START %%%
 
 \begin{enumerate}
-	\item 
-	\item 
-	\item 
+	\item 100
+	\item 201.78 for $\lambda=0$, 26.51 for $\lambda=100$
+	\item 0\%/12.6\% for $\lambda=0$, 0\%/5.98\% for $\lambda=100$
 \end{enumerate}
 %%% PROBLEM 2(a) ANSWER END %%%
 }
@@ -140,7 +152,7 @@
 
 \newcommand{\answerIIb}{ \answer
 %%% PROBLEM 2(b) ANSWER START %%%
-
+0\%/6.58\% for $\lambda=0$, 0\%/5.02\% for $\lambda=1$. 
 %%% PROBLEM 2(b) ANSWER END %%%
 }
 
@@ -149,11 +161,11 @@
 \newcommand{\answerIIIa}{ \answer 
 %%% PROBLEM 3(a) ANSWER START %%%
 \begin{enumerate}
-	\item 
-	\item 
-	\item 
-	\item 
-	\item
+	\item F
+	\item F
+	\item T
+	\item F
+	\item F
 \end{enumerate}
 %%% PROBLEM 3(a) ANSWER END %%%
 

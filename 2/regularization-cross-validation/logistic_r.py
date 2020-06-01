@@ -1,5 +1,10 @@
 import numpy as np
 
+
+def logistic_function(X, w):
+    return 1. / (1 + np.exp(-w.T @ X))
+
+
 def logistic_r(X, y, lmbda):
     '''
     LR Logistic Regression.
@@ -12,7 +17,17 @@ def logistic_r(X, y, lmbda):
     '''
     P, N = X.shape
     w = np.zeros((P + 1, 1))
-    # YOUR CODE HERE
-    # begin answer
-    # end answer
+    learning_rate = 10
+    X = np.vstack((np.ones(N), X))
+
+    n_iter = 0
+    while n_iter < 50:
+        lf = logistic_function(X, w)
+        nll = -np.average(y*np.log(lf) + (1-y)*np.log(1-lf)) + lmbda * np.sum(w**2)
+        gradient = (-(X @ (y - lf).T) + lmbda * w) / N
+        # print(n_iter, nll, np.sum(gradient**2))
+        # if np.sum((gradient)**2) < .1:
+            # break
+        w -= learning_rate * gradient
+        n_iter += 1
     return w

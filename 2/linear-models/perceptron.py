@@ -15,8 +15,14 @@ def perceptron(X, y):
     w = np.zeros((P + 1, 1))
     iters = 0
     # YOUR CODE HERE
-    
-    # begin answer
-    # end answer
-    
+    X = np.vstack((np.ones(N), X))
+    alpha = 1.
+    while True:
+        y_ = np.sign(w.T @ X)
+        _, mistake_idx = np.where(y != y_)
+        if len(mistake_idx) == 0:
+            break
+        w += alpha * np.expand_dims(y[0, mistake_idx[0]] * X[:, mistake_idx[0]], -1)
+        iters += 1
+
     return w, iters
