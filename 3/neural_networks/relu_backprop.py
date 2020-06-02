@@ -11,9 +11,6 @@ def relu_backprop(in_sensitivity, in_):
       output paramter:
           out_sensitivity : the sensitivity to the lower layer, shape: same as in_sensitivity
     '''
-    # TODO
-
-    # begin answer
-    # end answer
+    out_sensitivity = in_sensitivity * (in_ > 0)
     return out_sensitivity
 

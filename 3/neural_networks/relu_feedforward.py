@@ -9,8 +9,6 @@ def relu_feedforward(in_):
       outputs:
               out : the output, shape: same as in
     '''
-    # TODO
-
-    # begin answer
-    # end answer
+    out = np.zeros(in_.shape)
+    out[in_ > 0] = in_[in_ > 0]
     return out

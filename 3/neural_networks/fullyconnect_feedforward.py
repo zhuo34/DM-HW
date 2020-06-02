@@ -11,10 +11,6 @@ def fullyconnect_feedforward(in_, weight, bias):
       output parameters:
           out     : the output of this layer, shape: [number of images, number of outputs]
     '''
-    # TODO
-
-    # begin answer
-    # end answer
-
+    out = in_ @ weight + bias.T
     return out
 

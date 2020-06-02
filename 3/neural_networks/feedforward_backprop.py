@@ -21,5 +21,4 @@ def feedforward_backprop(data, label, weights):
     # backprop of relu and then hidden layer 
     fully1_sensitivity = relu_backprop(relu1_sensitivity, fully1_out)
     gradients['fully1_weight_grad'], gradients['fully1_bias_grad'], _ = fullyconnect_backprop(fully1_sensitivity, data, weights['fully1_weight'])
-
     return loss, accuracy, gradients
